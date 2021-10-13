@@ -1,0 +1,6 @@
+1634060982882	Rename package 'com.poc.bookingCoupon'
+1634061010415	Rename package 'com.poc.bookingCoupon.service'
+1634061020666	Rename package 'com.poc.bookingCoupon.Repository'
+1634061031498	Rename package 'com.poc.bookingCoupon.model'
+1634061150530	Encapsulate field 'coupons'
+1634120644245	Rename local variable 'bookingDetails'

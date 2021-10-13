@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="lombok.ToString"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.repository.MongoRepository"/>
+    <fullyQualifiedTypeName name="com.poc.CouponManagement.repository.ActiveCouponRepo"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.repository.config.EnableMongoRepositories"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="lombok.Getter"/>
+    <fullyQualifiedTypeName name="lombok.Setter"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="java.util.Locale.Category"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.MongoTemplate"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.query.Query"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.query.CriteriaDefinition"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.query.Criteria"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.query.Update"/>
+    <fullyQualifiedTypeName name="com.poc.CouponManagement.DataModel.ActiveCoupon"/>
+    <fullyQualifiedTypeName name="com.mongodb.client.result.UpdateResult"/>
+    <fullyQualifiedTypeName name="com.poc.CouponManagement.repository.CustomUpdateRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="com.poc.CouponManagement.enums.CouponType"/>
+    <fullyQualifiedTypeName name="com.poc.CouponManagement.enums.IncomeType"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.poc.CouponManagement.DataModel.Company"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="java.util.UUID"/>
+    <fullyQualifiedTypeName name="com.poc.bookingCoupon.model.Coupon"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.mapping.Document"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.data.annotation.Id"/>
+</qualifiedTypeNameHistroy>

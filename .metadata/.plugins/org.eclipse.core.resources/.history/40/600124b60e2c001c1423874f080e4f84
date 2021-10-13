@@ -1,0 +1,47 @@
+package com.poc.Company.service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.poc.Company.Repository.BookingRepository;
+import com.poc.Company.model.Company;
+import com.poc.Company.model.Coupon;
+
+@Service
+public class BookingService {
+
+	@Autowired
+	private BookingRepository bookingRepository;
+	
+	
+	public String appendcoupon(Coupon coupon,String id) {
+		Optional<Company> c=bookingRepository.findById(id);
+		Company v=c.get();
+		System.out.println(v.getId());
+		return "sssss";
+	}
+//	public String bookCoupon(Coupon bookingDetails) {
+//
+//		bookingDetails.setId(UUID.randomUUID().toString());
+//		bookingDetails.setStatus("Confirmed");
+//		bookingDetails.setPrice(0.00);
+//		//String uniqueID = UUID.randomUUID().toString();
+//
+//		bookingRepository.save(bookingDetails);
+//		return "Ticket booked successfully, your PNR number is " + bookingDetails.getId();
+//	}
+//
+//	public String CouponStatus(Coupon coupon) {
+//		Coupon s=bookingRepository.findBookingById(coupon.getId());
+//		return s.getStatus();
+//	}
+//
+//	public List<Coupon> showBookedCoupons(String userName) {
+//		return bookingRepository.findBookingByUserName(userName);
+//	}
+
+}
