@@ -1,6 +1,7 @@
 package com.poc.bookingCoupon.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,24 +17,27 @@ public class BookingService {
 	@Autowired
 	private BookingRepository bookingRepository;
 	
-	public String bookCoupon(Coupon bookingDetails) {
+	public String bookCoupon(Coupon coupon) {
 
-		bookingDetails.setId(UUID.randomUUID().toString());
-		bookingDetails.setStatus("Confirmed");
-		bookingDetails.setPrice(0.00);
+		//bookingDetails.setId(UUID.randomUUID().toString());
+		coupon.setStatus("Confirmed");
+		//coupon.setPrice(0.00);
 		//String uniqueID = UUID.randomUUID().toString();
 
-		bookingRepository.save(bookingDetails);
-		return "Ticket booked successfully, your PNR number is " + bookingDetails.getId();
+		bookingRepository.save(coupon);
+		return "Coupon booked with Id  " + coupon.getId();
+	}
+	public Coupon getCoupon(String id) {
+		return bookingRepository.findCouponById(id);
 	}
 
-	public String CouponStatus(Coupon coupon) {
-		Coupon s=bookingRepository.findBookingById(coupon.getId());
+	public String CouponStatus(String id) {
+		Coupon s=bookingRepository.findCouponById(id);
 		return s.getStatus();
 	}
 
 	public List<Coupon> showBookedCoupons(String userName) {
-		return bookingRepository.findBookingByUserName(userName);
+		return bookingRepository.findstatus(userName);
 	}
 
 }

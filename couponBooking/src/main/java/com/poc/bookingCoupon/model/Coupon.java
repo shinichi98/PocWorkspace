@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-@Document(collection = "BookedCoupons")
+@Document(collection = "ActiveCoupons")
 public class Coupon{
 
     @Id
@@ -32,25 +32,9 @@ public class Coupon{
     private String message;
     private String status="NotConfirmed";
     private double price;
-    @Autowired
-    private Company company;
     public Coupon() {
     }
-   
-
-
-    public Company getCompany() {
-		return company;
-	}
-
-	public void setCompany(Company company) {
-		this.company = company;
-	}
-    
-
-	
-
-    public String getId() {
+       public String getId() {
         return id;
     }
 

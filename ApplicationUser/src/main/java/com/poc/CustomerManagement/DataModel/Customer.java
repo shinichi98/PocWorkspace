@@ -1,5 +1,8 @@
 package com.poc.CustomerManagement.DataModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //import java.util.Locale.Category;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,18 +13,30 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Customer {
 		
 		@Id
-		private int id;
+		private String id;
 		private String fullName;
 		private String emailid;
 		private String password;
 		private String preference;		
 		private int age;
+		private List<Coupon> coupons;
 		
-		
-		public int getId() {
+		public void append(Coupon coupon) {
+			if(coupons==null) {
+				coupons=new ArrayList<Coupon>();
+			}
+			coupons.add(coupon);
+		}
+		public List<Coupon> getCoupons() {
+			return coupons;
+		}
+		public void setCoupons(List<Coupon> coupons) {
+			this.coupons = coupons;
+		}
+		public String getId() {
 			return id;
 		}
-		public void setId(int id) {
+		public void setId(String id) {
 			this.id = id;
 		}
 		public String getFullName() {

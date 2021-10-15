@@ -4,3 +4,9 @@
 1634061031498	Rename package 'com.poc.bookingCoupon.model'
 1634061150530	Encapsulate field 'coupons'
 1634120644245	Rename local variable 'bookingDetails'
+1634155404886	Copy compilation unit
+1634155506139	Copy compilation unit
+1634192094740	Move compilation unit
+1634192127519	Rename type 'BookingService'
+1634192144128	Rename type 'BookingController'
+1634192152981	Rename type 'BookingServiceApplication'

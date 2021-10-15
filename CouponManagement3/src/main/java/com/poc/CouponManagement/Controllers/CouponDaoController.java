@@ -39,6 +39,7 @@ public class CouponDaoController {
 	@PostMapping("/AddCoupon")
 	public ResponseEntity<?> AddCoupon(@RequestBody Coupon coupon) {
 		repository.insert(coupon);
+		
 		return new ResponseEntity<>("Added New coupon"+coupon.getId(),HttpStatus.OK);	
 	}
 	
@@ -58,19 +59,19 @@ public class CouponDaoController {
 		return new ResponseEntity<>("Deleted a coupon with id : "+ id, HttpStatus.OK);
 	}
 	
-	@PutMapping("/updateCouponCategory/{id}&{value}")
-	public ResponseEntity<?> updateCouponCategory(@PathVariable int id,@PathVariable String value){
-		customRepo.updateCategory(id,value);
-	return new ResponseEntity<>("Updated a coupon with id : "+ id, HttpStatus.OK);
-	}
-	@PutMapping("/updateCouponDescription/{id}&{value}")
-	public ResponseEntity<?> updateCouponDescription(@PathVariable int id,@PathVariable String value){
-		customRepo.updateDescription(id,value);
-	return new ResponseEntity<>("Updated a coupon with id : "+ id, HttpStatus.OK);
-	}
-	@PutMapping("/updateCouponOffer/{id}&{value}")
-	public ResponseEntity<?> updateCouponOffer(@PathVariable int id,@PathVariable int value){
-		customRepo.updatePercentage(id,value);
-	return new ResponseEntity<>("Updated a coupon with id : "+ id, HttpStatus.OK);
-	}
+//	@PutMapping("/updateCouponCategory/{id}&{value}")
+//	public ResponseEntity<?> updateCouponCategory(@PathVariable int id,@PathVariable String value){
+//		customRepo.updateCategory(id,value);
+//	return new ResponseEntity<>("Updated a coupon with id : "+ id, HttpStatus.OK);
+//	}
+//	@PutMapping("/updateCouponDescription/{id}&{value}")
+//	public ResponseEntity<?> updateCouponDescription(@PathVariable int id,@PathVariable String value){
+//		customRepo.updateDescription(id,value);
+//	return new ResponseEntity<>("Updated a coupon with id : "+ id, HttpStatus.OK);
+//	}
+//	@PutMapping("/updateCouponOffer/{id}&{value}")
+//	public ResponseEntity<?> updateCouponOffer(@PathVariable int id,@PathVariable int value){
+//		customRepo.updatePercentage(id,value);
+//	return new ResponseEntity<>("Updated a coupon with id : "+ id, HttpStatus.OK);
+//	}
 }

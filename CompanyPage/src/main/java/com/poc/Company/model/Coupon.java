@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-@Document(collection = "BookedCoupons")
+//@Document(collection = "BookedCoupons")
 public class Coupon{
 
     @Id

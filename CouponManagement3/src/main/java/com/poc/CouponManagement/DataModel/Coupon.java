@@ -31,10 +31,19 @@ public class Coupon  {
     private Date endDate;
     private int offeredDiscount;
     private String status="NotConfirmed";
-//    private CouponType couponType;    
+//  private CouponType couponType;    
     private String message;
-   
     private double price;
+    public int getOfferedDiscount() {
+		return offeredDiscount;
+	}
+
+	public void setOfferedDiscount(int offeredDiscount) {
+		this.offeredDiscount = offeredDiscount;
+	}
+
+
+	
     
     public Coupon() {
     }

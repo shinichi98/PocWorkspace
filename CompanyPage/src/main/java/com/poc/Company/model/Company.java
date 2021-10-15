@@ -2,6 +2,8 @@ package com.poc.Company.model;
 
 
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -17,9 +19,23 @@ public class Company {
 	private String password;
 	private String email;
     private List<Coupon> coupons;
+	public Company(String id, String name, String password, String email, List<Coupon> coupons) {
+		
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.email = email;
+		this.coupons = coupons;
+	}
 	public Company() {
     }
- 
+	public void append(Coupon coupon) {
+		if( this.coupons==null) {
+			this.coupons=new ArrayList<Coupon>();
+		}
+		this.coupons.add(coupon);
+		
+	}
 
 	public String getId() {
 		return id;

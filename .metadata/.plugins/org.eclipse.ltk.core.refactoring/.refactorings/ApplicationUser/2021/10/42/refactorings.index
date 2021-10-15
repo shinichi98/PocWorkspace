@@ -1,3 +1,6 @@
 1633864343949	Encapsulate field 'emailid'
 1633867797580	Rename type 'CouponDaoController'
 1634052292332	Encapsulate field 'password'
+1634201347830	Copy compilation unit
+1634201496825	Rename local variable 'coupon'
+1634293028721	Rename local variable 'customer'

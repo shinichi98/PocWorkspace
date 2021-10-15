@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
+import com.poc.CustomerManagement.DataModel.Coupon;
 import com.poc.CustomerManagement.DataModel.Customer;
 import com.poc.CustomerManagement.repository.CustomerRepo;
 import com.poc.CustomerManagement.repository.CustomUpdateRepository;
@@ -31,46 +33,66 @@ public class CustomerDaoController {
 	
 	@Autowired
 	CustomerRepo repository;
+	@Autowired
+	private RestTemplate restTemplate;
 	
 	@Autowired
     CustomUpdateRepository customRepo;
-	
+	@GetMapping("/")
+	public String home() {
+		return "welcome to your customer page!!!";
+	}
 	//now we will create and add coupon function with postmapping
-	@PostMapping("/AddCoupon")
-	public ResponseEntity<?> AddCoupon(@RequestBody Customer coupon) {
-		repository.insert(coupon);
-		return new ResponseEntity<>("Added New coupon"+coupon.getId(), HttpStatus.OK);	
+	@PostMapping("/AddCustomer")
+	public ResponseEntity<?> AddCustomer(@RequestBody Customer customer) {
+		repository.save(customer);
+		return new ResponseEntity<>("Added New coupon"+customer.getId(), HttpStatus.OK);	
 	}
 	
-	@GetMapping("/findAllCoupons")
-	public List<Customer> getCoupons(){
+	@GetMapping("/findAllCustomers")
+	public List<Customer> getCustomers(){
 		return repository.findAll();
 	}
 	
-	@GetMapping("/findAllCoupons/{id}")
-	public Optional<Customer> getCoupon(@PathVariable int id){
-		return repository.findById(id);
-	}
-	
-	@DeleteMapping("/deleteCoupon/{id}")
-	public ResponseEntity<?> deleteCoupon(@PathVariable int id){
+	@DeleteMapping("/deleteCustomer/{id}")
+	public ResponseEntity<?> delCustomer(@PathVariable String id) {
 		repository.deleteById(id);
-		return new ResponseEntity<>("Deleted a coupon with id : "+ id, HttpStatus.OK);
+		return new ResponseEntity<>("Added New coupon "+id, HttpStatus.OK);	
+	}
+	@PostMapping("/bookCoupon/{id}")
+	public ResponseEntity<?> bookCoupon(@RequestBody Coupon coupon,@PathVariable String id) {
+		String s=restTemplate.postForObject("http://localhost:8084/bookCoupon",coupon,String.class);
+		repository.findCustomerById(id).append(coupon);
+		return new ResponseEntity<>("Added New coupon "+coupon.getId() + "with customer "+ id, HttpStatus.OK);	
 	}
 	
-	@PutMapping("/updateCouponCategory/{id}&{value}")
-	public ResponseEntity<?> updateCouponCategory(@PathVariable int id,@PathVariable String value){
-		customRepo.updateCategory(id,value);
-	return new ResponseEntity<>("Updated a coupon with id : "+ id, HttpStatus.OK);
-	}
-	@PutMapping("/updateCouponDescription/{id}&{value}")
-	public ResponseEntity<?> updateCouponDescription(@PathVariable int id,@PathVariable String value){
-		customRepo.updateDescription(id,value);
-	return new ResponseEntity<>("Updated a coupon with id : "+ id, HttpStatus.OK);
-	}
-	@PutMapping("/updateCouponOffer/{id}&{value}")
-	public ResponseEntity<?> updateCouponOffer(@PathVariable int id,@PathVariable int value){
-		customRepo.updatePercentage(id,value);
-	return new ResponseEntity<>("Updated a coupon with id : "+ id, HttpStatus.OK);
-	}
 }
+	
+//	
+//	@GetMapping("/findAllCoupons/{id}")
+//	public Optional<Customer> getCoupon(@PathVariable int id){
+//		return repository.findById(id);
+//	}
+//	
+//	@DeleteMapping("/deleteCoupon/{id}")
+//	public ResponseEntity<?> deleteCoupon(@PathVariable int id){
+//		repository.deleteById(id);
+//		return new ResponseEntity<>("Deleted a coupon with id : "+ id, HttpStatus.OK);
+//	}
+//	
+//	@PutMapping("/updateCouponCategory/{id}&{value}")
+//	public ResponseEntity<?> updateCouponCategory(@PathVariable int id,@PathVariable String value){
+//		customRepo.updateCategory(id,value);
+//	return new ResponseEntity<>("Updated a coupon with id : "+ id, HttpStatus.OK);
+//	}
+//	@PutMapping("/updateCouponDescription/{id}&{value}")
+//	public ResponseEntity<?> updateCouponDescription(@PathVariable int id,@PathVariable String value){
+//		customRepo.updateDescription(id,value);
+//	return new ResponseEntity<>("Updated a coupon with id : "+ id, HttpStatus.OK);
+//	}
+//	@PutMapping("/updateCouponOffer/{id}&{value}")
+//	public ResponseEntity<?> updateCouponOffer(@PathVariable int id,@PathVariable int value){
+//		customRepo.updatePercentage(id,value);
+//	return new ResponseEntity<>("Updated a coupon with id : "+ id, HttpStatus.OK);
+//	}
+//}

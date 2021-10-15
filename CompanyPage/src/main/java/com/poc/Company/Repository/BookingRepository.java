@@ -11,9 +11,9 @@ import com.poc.Company.model.Coupon;
 public interface BookingRepository extends MongoRepository<Company, String>{
 	
 	@Query(value = "{id:?0}")
-	public Coupon findBookingById(String id);
+	public Company findcompanyById(String id);
 	
-	@Query(value = "{passengerName:?0}")
-	public List<Coupon> findBookingByUserName(String userName);
+	@Query(value = "{username:?0}")
+	public List<Company> findBookingByUserName(String userName);
 
 }
