@@ -59,9 +59,10 @@ public class CustomerDaoController {
 		repository.deleteById(id);
 		return new ResponseEntity<>("Added New coupon "+id, HttpStatus.OK);	
 	}
-	@PostMapping("/bookCoupon/{id}")
-	public ResponseEntity<?> bookCoupon(@RequestBody Coupon coupon,@PathVariable String id) {
-		String s=restTemplate.postForObject("http://localhost:8084/book/bookCoupon",coupon,String.class);
+	@PostMapping("/bookCoupon/{id}&{id2}")
+	public ResponseEntity<?> bookCoupon(@PathVariable String id,@PathVariable String id2) {
+		Coupon coupon=restTemplate.getForObject("http://localhost:8084/book/getCoupon/"+id2,Coupon.class);
+		String s=restTemplate.postForObject("http://localhost:8084/book/bookCoupon", coupon, String.class);
 		repository.findCustomerById(id).append(coupon);
 		return new ResponseEntity<>("Added New coupon "+coupon.getId() + "with customer "+ id, HttpStatus.OK);	
 	}

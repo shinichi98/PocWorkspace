@@ -43,5 +43,9 @@ public class BookingService {
 	public List<Coupon> showBookedCoupons(String userName) {
 		return bookingRepository.findstatus(userName);
 	}
+//	public String bookCouponbyid(String id) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 }

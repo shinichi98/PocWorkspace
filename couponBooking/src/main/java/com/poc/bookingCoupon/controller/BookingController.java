@@ -31,10 +31,13 @@ public class BookingController {
 	public Coupon getCoupon(@PathVariable String id) {
 		return bookingService.getCoupon(id);
 	}
-	
+//	@PostMapping("/bookCoupon/{id}")
+//	public Coupon bookcouponbyid(@PathVariable String id) {
+//		return bookingService.bookCouponbyid(id);
+//	}
 
 	@PostMapping("/bookCoupon")
-	public String bookTicket(@RequestBody Coupon bookingDetails) {
+	public String bookcoupon(@RequestBody Coupon bookingDetails) {
 		return bookingService.bookCoupon(bookingDetails);
 	}
 
