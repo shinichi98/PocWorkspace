@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -19,6 +20,7 @@ import com.poc.Company.model.Coupon;
 import com.poc.Company.service.companyService;
 
 @RestController
+@RequestMapping("/company")
 public class companyController {
 
 	@Autowired
@@ -31,15 +33,16 @@ public class companyController {
 		return "hello welcome";
 	}
 	@PostMapping("/AddCompany")
-	public ResponseEntity<?> AddCoupon(@RequestBody Company coupon) {
-		bookingService.addCompany(coupon);
-		return new ResponseEntity<>("Added New company"+coupon.getId(),HttpStatus.OK);	
+	public ResponseEntity<?> AddCompany(@RequestBody Company company) {
+		bookingService.addCompany(company);
+		return new ResponseEntity<>("Added New company"+company.getId(),HttpStatus.OK);	
 	}
 	@PostMapping("/AddCoupon/{id}")
-	public ResponseEntity<?> addCoupon(@RequestBody Coupon coupon,@PathVariable String id) {
-		ResponseEntity<?> result = restTemplate.postForObject("http://localhost:8086/coupon/AddCoupon",coupon,ResponseEntity.class);
+	public String addCoupon(@RequestBody Coupon coupon,@PathVariable String id) {
 		bookingService.appendcoupon(coupon, id);
-		return result;
+		return restTemplate.postForObject("http://localhost:8086/coupon/AddCoupon",coupon,String.class);
+		
+		//return result;
 	}
 	@DeleteMapping("/deleteCompany/{id}")
 	public void deleteCoupon(@PathVariable String id) {

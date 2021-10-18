@@ -11,16 +11,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
-
-
-
-
-
-//import lombok.ToString;
-
-
 @Component
-@Document(collection = "ActiveCoupons")
+@Document(collection = "ActiveCoupon")
 public class Coupon{
 
     @Id
@@ -88,24 +80,7 @@ public class Coupon{
 
     public void setPrice(double price) {
         this.price = price;
-    }
-//    @Override
-//    public String toString() {
-//        return "Coupon{" +
-//                "id=" + id +
-//                ", title='" + title + '\'' +
-//                ", startDate=" + startDate +
-//                ", endDate=" + endDate +
-//                ", amount=" + amount +
-//                ", couponType=" + couponType +
-//                ", message='" + message + '\'' +
-//                ", price=" + price +
-//                ", companyId=" + company.getId() +
-//                '}';
-//    }
-
-
-    
+    }    
 	public void setStatus(String string) {
 		this.status=string;
 		

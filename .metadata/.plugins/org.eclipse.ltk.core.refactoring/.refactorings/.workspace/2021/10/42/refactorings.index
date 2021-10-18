@@ -3,3 +3,6 @@
 1634057091840	Rename resource 'dashboard-service'
 1634057780044	Rename resource 'booking-service'
 1634060933459	Delete resource 'Company'
+1634385268845	Delete resource 'discovery-server'
+1634385281400	Delete resource 'CouponManagement'
+1634385292251	Delete resource 'zuul-service'

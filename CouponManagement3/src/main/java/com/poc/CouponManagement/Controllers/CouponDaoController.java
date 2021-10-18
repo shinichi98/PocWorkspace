@@ -23,10 +23,6 @@ import com.poc.CouponManagement.repository.CustomUpdateRepository;
 @RequestMapping("/coupon")
 public class CouponDaoController {
 	
-//	@GetMapping("/home")
-//	public String hello() {
-//		return "how are you all";
-//	}
 	//injecting the data
 	
 	@Autowired
@@ -35,12 +31,18 @@ public class CouponDaoController {
 	@Autowired
     CustomUpdateRepository customRepo;
 	
+
+	@GetMapping("/home")
+	public String hello() {
+		return "how are you all";
+	}
+	
 	//now we will create and add coupon function with postmapping
 	@PostMapping("/AddCoupon")
-	public ResponseEntity<?> AddCoupon(@RequestBody Coupon coupon) {
+	public String AddCoupon(@RequestBody Coupon coupon) {
 		repository.insert(coupon);
-		
-		return new ResponseEntity<>("Added New coupon"+coupon.getId(),HttpStatus.OK);	
+		return "coupon added";
+		//return new ResponseEntity<>("Added New coupon"+coupon.getId(),HttpStatus.OK);	
 	}
 	
 	@GetMapping("/findAllCoupons")

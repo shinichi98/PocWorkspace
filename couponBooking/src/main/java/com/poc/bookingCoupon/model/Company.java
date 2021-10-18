@@ -1,16 +1,23 @@
 package com.poc.bookingCoupon.model;
 
+import java.util.List;
 
-
-import org.springframework.stereotype.Component;
-
-@Component
 public class Company {
 	private int id;
 	private String name;
 	private String password;
 	private String email;
-    
+    List<Coupon> coupons;
+	public List<Coupon> getCoupons() {
+		return coupons;
+	}
+
+
+	public void setCoupons(List<Coupon> coupons) {
+		this.coupons = coupons;
+	}
+
+
 	public Company() {
     }
  

@@ -61,7 +61,7 @@ public class CustomerDaoController {
 	}
 	@PostMapping("/bookCoupon/{id}")
 	public ResponseEntity<?> bookCoupon(@RequestBody Coupon coupon,@PathVariable String id) {
-		String s=restTemplate.postForObject("http://localhost:8084/bookCoupon",coupon,String.class);
+		String s=restTemplate.postForObject("http://localhost:8084/book/bookCoupon",coupon,String.class);
 		repository.findCustomerById(id).append(coupon);
 		return new ResponseEntity<>("Added New coupon "+coupon.getId() + "with customer "+ id, HttpStatus.OK);	
 	}
